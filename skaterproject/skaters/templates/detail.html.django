@@ -1,0 +1,46 @@
+{% extends 'skaterproject/templates/base/html/django' %}
+
+{% block navigation %}
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Skaters!</a>
+        </li>
+        <li>
+            <a href="{% url 'add' %}">Add Sk8r</a>
+        </li>
+        <li>
+            <a href="{% url 'teams-home' %}">Sk8 Teams</a>
+        </li>
+        <li>
+            <a href="{% url 'add-team' %}">Add sk8 team</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        <div class="grid-item">
+            <h2>Name: {{ skater.name }}</h2>
+            <img src="{{ MEDIA_URL }}{{ skater.image }}" alt="{{ skater.name }}">
+        </div>
+
+        <div class="grid-item">
+            <h3>{{ skater.name }} Info</h3>
+            {% if skater.pro == True %}
+                <p>(pro $kater!)<p>
+            {% endif %}
+            <ul>
+                <li>Video parts include {{ skater.videos }}</li>
+                <li> This skater rides for the following teams: {{ skater.teams }}</li>
+            </ul>
+        </div>
+
+        <div class="grid-item">
+            <h3>Options for {{ skater.name }}</h3>
+            <a href="{% url 'edit' skater.pk %}" class="button">Edit {{ skater.name }}</a>
+            <a href="{% url 'delete' skater.pk %}" class="button">Delete {{ skater.name }}</a>
+        </div>
+    </div>
+{% endblock %}

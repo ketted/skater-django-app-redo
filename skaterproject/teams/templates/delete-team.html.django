@@ -1,0 +1,31 @@
+{% extends 'skaterproject/templates/base.html.django' %}
+
+{% block navigation %}
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Skaters!</a>
+        </li>
+        <li>
+            <a href="{% url 'add' %}">Add Sk8r</a>
+        </li>
+        <li>
+            <a href="{% url 'teams-home' %}">Sk8 Teams</a>
+        </li>
+        <li>
+            <a href="{% url 'add-team' %}">Add sk8 team</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h2>disband the team: delete!</h2>
+<div class="warning"> do you really want to disband {{ team.brand }}?
+</div>
+<form method="post">
+    {% csrf_token %}
+    <a href="{% url 'teams-home' %}" class="button">stop!go home</a>
+    <button type="submit">yes! delete {{ team.brand }}</button>
+</form>
+{% endblock %}

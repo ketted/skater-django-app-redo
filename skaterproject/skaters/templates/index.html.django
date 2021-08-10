@@ -1,0 +1,36 @@
+{% extends 'skaterproject/templates/base.html.django' %}
+
+{% block navigation %}
+<nav>
+    <ul>
+        <li> 
+            <a href="{% url 'home' %}" class="current"> Skaters!</a>
+        </li>
+        <li>
+            <a href="{% url 'add' %}">Add Sk8r</a>
+        </li>
+        <li>
+            <a href="{% url 'teams-home' %}">Sk8 Teams</a>
+        </li>
+        <li>
+            <a href="{% url 'add-team' %}">Add sk8 team</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+        {% for skater in skaters %}
+        <div class="grid-item">
+            <h2>
+                <a href={% url 'detail' skater.pk %}>{{ skater.name }}</a>
+            </h2>
+            <img src="{{ MEDIA_URL }}{{ skater.image }}" alt="{{ skater.name }}">
+            <a href="{% url 'detail' skater.pk %}" class="button">Details...</a>
+            <a href="{% url 'edit' skater.pk %}" class="button">Edit content</a>
+            <a href="{% url 'delete' skater.pk %}" class="button"Delete content</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

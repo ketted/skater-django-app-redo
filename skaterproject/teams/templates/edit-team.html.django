@@ -1,0 +1,29 @@
+{% extends 'skaterproject/templates/base.html.django' %}
+
+{% block navigation %}
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Skaters!</a>
+        </li>
+        <li>
+            <a href="{% url 'add' %}">Add Sk8r</a>
+        </li>
+        <li>
+            <a href="{% url 'teams-home' %}">Sk8 Teams</a>
+        </li>
+        <li>
+            <a href="{% url 'add-team' %}" class="current">Add sk8 team</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<h2> edit the team!</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">edit the team </button>
+</form>
+{% endblock %}

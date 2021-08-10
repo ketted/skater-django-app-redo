@@ -1,0 +1,41 @@
+{% extends 'skaterproject/templates/base.html.django' %}
+
+{% block navigation %}
+<nav>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Skaters!</a>
+        </li>
+        <li>
+            <a href="{% url 'add' %}">Add Sk8r</a>
+        </li>
+        <li>
+            <a href="{% url 'teams-home' %}" class="current">Sk8 Teams</a>
+        </li>
+        <li>
+            <a href="{% url 'add-team' %}">Add sk8 team</a>
+        </li>
+    </ul>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="grid">
+    {% for team in teams %}
+    <div class="grid-item">
+        <h2>
+            <a href="{% url 'team-detail' team.pk %}" class="button">{{team.brand}}</a>
+        </h2>
+        <h3> who rides for {{ team.brand }}:
+        {% for skater in team.skaters.all %}
+        <img src="{{ MEDIA_URL }}{{ skater.image }}" alt="{{ skater.name }}">
+        {{ skater.name }}{% if forloop.counter < team.skaters.all|length %} {% endif %}
+        {% endfor %}
+        </h3>manage the team: </h3>
+        <a href="{% url 'team-detail' team.pk %}" class="button">team details</a>
+        <a href="{% url 'edit-team' team.pk %}" class="button">edit team</a>
+        <a href="{% url 'delete-team' team.pk %}" class="button">delete team</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
