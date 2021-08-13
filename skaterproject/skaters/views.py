@@ -31,4 +31,5 @@ class SkaterDelete(DeleteView):
 class SkaterUpdate(UpdateView):
     model = Skater
     template_name = 'edit.html.django'
+    fields = SkaterForm.Meta.fields
     success_url = reverse_lazy('home')

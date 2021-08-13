@@ -1,4 +1,4 @@
-{% extends 'skaterproject/templates/base/html/django' %}
+{% extends 'skaterproject/templates/base.html.django' %}
 
 {% block navigation %}
 <nav>
@@ -33,7 +33,7 @@
             {% endif %}
             <ul>
                 <li>Video parts include {{ skater.videos }}</li>
-                <li> This skater rides for the following teams: {{ skater.teams }}</li>
+                {% comment %} <li> This skater rides for the following teams: {{ skater.teams }}</li> {% endcomment %}
             </ul>
         </div>
 

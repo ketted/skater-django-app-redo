@@ -7,7 +7,7 @@
             <a href="{% url 'home' %}">Skaters!</a>
         </li>
         <li>
-            <a href="{% url 'add' %}">Add Sk8r</a>
+            <a href="{% url 'add' %}" class="current">Add Sk8r</a>
         </li>
         <li>
             <a href="{% url 'teams-home' %}">Sk8 Teams</a>

@@ -1,14 +1,14 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Skaters!</title>
-    <link href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
 <body>
     <header>
-        <h1>Skaters</h1>
+        <h1>Skaters! by E Kettleson</h1>
         {% block navigation %}
         {% endblock %}
     </header>
@@ -17,7 +17,7 @@
         {% endblock %}
     </div>
     <footer>
-        <p>Skater App by E. Kettleson</p>
+        <p>Skater App by E. Kettleson (ekettleson@myseneca.ca)</p>
     </footer>
 </body>
 </html>
