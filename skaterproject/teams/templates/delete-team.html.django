@@ -25,7 +25,7 @@
 </div>
 <form method="post">
     {% csrf_token %}
-    <a href="{% url 'teams-home' %}" class="button">stop!go home</a>
+    <a href="{% url 'teams-home' %}" class="button">stop! go home</a>
     <button type="submit">yes! delete {{ team.brand }}</button>
 </form>
 {% endblock %}

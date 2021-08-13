@@ -23,17 +23,23 @@
 {% block content %}
 <div class="grid">
     <div class="grid-item">
-        <h2>{{ team.brand }}</h2>
-        <h3> who rides for {{ team.brand }}:
-        {% for skater in team.skaters.all %}
-        {% comment %} <img src="{{ MEDIA_URL }}{{ skater.image }}" alt="{{ skater.name }}"> {% endcomment %}
-        {{ skater.name }}{% if forloop.counter < team.skaters.all|length %} {% endif %}
-        {% endfor %}
-        {% for skater in team.skaters.all %}
-        <p> this teams videos include {{ skater.videos }}</p>
-        {% endfor %} 
-        <div class="grid-item">
-            </h3>team actions</h3>
+        <h2>{{ team.brand }} est. {{ team.est }}</h2>
+        <div>
+            <div>
+                <h3> Who rides for {{ team.brand }}?...</h3>
+                {% for skater in team.skaters.all %}
+                {% comment %} <img src="{{ MEDIA_URL }}{{ skater.image }}" alt="{{ skater.name }}"> {% endcomment %}
+                {{ skater.name }}{% if forloop.counter < team.skaters.all|length %} {% endif %}
+                {% endfor %}
+            </div>
+            <div>
+                {% for skater in team.skaters.all %}
+                <p> This teams videos include {{ skater.videos }}</p>
+                {% endfor %} 
+            </div>
+        </div>
+        <div>
+            <h3>Team actions:</h3>
             <a href="{% url 'edit-team' team.pk %}" class="button">edit team</a>
             <a href="{% url 'delete-team' team.pk %}" class="button">delete team</a>
         </div>

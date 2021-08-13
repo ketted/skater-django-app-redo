@@ -20,10 +20,10 @@
 {% endblock %}
 
 {% block content %}
-<h2> edit the team!</h2>
+<h2> Edit the team!</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">edit the team </button>
+    <button type="submit">Edit the team </button>
 </form>
 {% endblock %}
